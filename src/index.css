@@ -1,0 +1,15 @@
+/* Estilos globales */
+html {
+  scroll-padding-top: 70px; /* Ajusta esto a la altura real de tu navbar */
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: RGB(7, 14, 28);*/
+  background: -webkit-linear-gradient(90deg, #000000,#0d1521,#070e18);background: linear-gradient(90deg, #000000,#0d1521,#070e18); 
+}
+
+/* Otros estilos existentes */
