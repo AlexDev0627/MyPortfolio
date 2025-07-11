@@ -23,7 +23,7 @@ function Home() {
           sequence={[
           
             '_', 
-            
+            100000,
           ]}
           wrapper="span" 
           repeat={Infinity}
