@@ -45,7 +45,7 @@ function About() {
     >
       <div className="container">
         <h2 className="text-center mb-4 text-white">
-          Sobre Mi<TypeAnimation
+          About Me<TypeAnimation
             sequence={[
               "_",
               3000, 
@@ -63,18 +63,18 @@ function About() {
               <motion.p
                 className="text-white mb-4"
               >
-                Soy un desarrollador web apasionado con experiencia en la creación de aplicaciones web dinámicas y responsivas. Me encanta transformar ideas en soluciones digitales funcionales y atractivas.
+              I am a passionate web developer with experience creating dynamic and responsive web applications. I love transforming ideas into functional and attractive digital solutions.
               </motion.p>
               <motion.p
                 className="text-white mb-5"
               >
-                Mi enfoque principal es el desarrollo frontend, donde disfruto trabajando con tecnologías modernas como React, JavaScript y CSS. También tengo conocimientos en desarrollo backend con Node.js y bases de datos.
+                My main focus is frontend development, where I enjoy working with modern technologies like React, JavaScript, and CSS. I also have knowledge of backend development with Node.js and databases  .
               </motion.p>
             </AboutTextContainer>
           </div>
         </div>
 
-        <h3 className="text-center mb-4 text-white">Habilidades 
+        <h3 className="text-center mb-4 text-white">Skills 
           <TypeAnimation
           sequence={[
             "_",
