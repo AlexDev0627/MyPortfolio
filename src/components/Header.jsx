@@ -113,13 +113,13 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="d-flex flex-column flex-md-row justify-content-md-center w-100">
             <Nav className="flex-grow-1 justify-content-center">
-              <NavLink href="#inicio" className={activeSection === 'inicio' ? 'nav-link active' : 'nav-link'}>Inicio</NavLink>
-              <NavLink href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'nav-link active' : 'nav-link'}>Sobre Mí</NavLink>
-              <NavLink href="#proyectos" className={activeSection === 'proyectos' ? 'nav-link active' : 'nav-link'}>Proyectos</NavLink>
-              <NavLink href="#contacto" className={activeSection === 'contacto' ? 'nav-link active' : 'nav-link'}>Contacto</NavLink>
+              <NavLink href="#inicio" className={activeSection === 'inicio' ? 'nav-link active' : 'nav-link'}>Home</NavLink>
+              <NavLink href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'nav-link active' : 'nav-link'}>About me</NavLink>
+              <NavLink href="#proyectos" className={activeSection === 'proyectos' ? 'nav-link active' : 'nav-link'}>Projects</NavLink>
+              <NavLink href="#contacto" className={activeSection === 'contacto' ? 'nav-link active' : 'nav-link'}>Contact</NavLink>
             </Nav>
             <div className="d-flex ms-md-auto mt-2 mt-md-0">
-              <StyledButton href="#contacto">Contáctame</StyledButton>
+              <StyledButton href="#contacto">Contact me</StyledButton>
               {/* <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></SocialIcon> */}
              
               <StyledIconButton href="https://github.com/AlexDev0627" target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></StyledIconButton>

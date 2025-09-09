@@ -50,24 +50,24 @@ function Footer() {
               className='text-primary'
               />
             </h5>
-            <p>Desarrollador web apasionado por crear soluciones digitales innovadoras y atractivas.</p>
-            <p>&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
+            <p>Web developer passionate about creating innovative and engaging digital solutions.</p>
+            <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
           </div>
 
           {/* Columna 2: Enlaces útiles */}
           <div className="col-md-4 mb-4 mb-md-0">
-            <h5 className="mb-3">Enlaces Útiles</h5>
+            <h5 className="mb-3">Useful Links</h5>
             <ul className="list-unstyled">
-              <li><FooterLink href="#inicio">Inicio</FooterLink></li>
-              <li><FooterLink href="#sobre-mi">Sobre Mí</FooterLink></li>
-              <li><FooterLink href="#proyectos">Proyectos</FooterLink></li>
-              <li><FooterLink href="#contacto">Contacto</FooterLink></li>
+              <li><FooterLink href="#inicio">Home</FooterLink></li>
+              <li><FooterLink href="#sobre-mi">About me</FooterLink></li>
+              <li><FooterLink href="#proyectos">Projects</FooterLink></li>
+              <li><FooterLink href="#contacto">Contact</FooterLink></li>
             </ul>
           </div>
 
           {}
           <div className="col-md-4 mb-4 mb-md-0">
-            <h5 className="mb-3">Contacto</h5>
+            <h5 className="mb-3">Contact</h5>
             <p><i className="bi bi-envelope me-2"></i> yofranksalas@gmail.com</p>
             <p><i className="bi bi-phone me-2"></i>+58 4124119922</p>
             <p><i className="bi bi-geo-alt me-2"></i>Valencia, Estado Carabbo</p>

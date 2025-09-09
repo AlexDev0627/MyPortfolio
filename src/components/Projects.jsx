@@ -9,22 +9,22 @@ import { TypeAnimation } from 'react-type-animation';
 const projectsData = [
   {
     id: 1,
-    title: 'Proyecto 1',
-    description: 'Una web de servicios de desarrollo web, donde los clientes pueden ver los servicios que ofrezco y contactarme.',
+    title: 'Project 1',
+    description: 'A web development services website, where clients can see the services I offer and contact me.',
     image: proyecto1, // Placeholder image
     link: 'https://nex-tech-git-main-alexdev0627s-projects.vercel.app/',
   },
   {
     id: 2,
-    title: 'Proyecto 2',
-    description: 'Una web de hotel donde los clientes pueden reservar sus habitaciones de forma online y segura.',
+    title: 'Project 2',
+    description: 'A hotel website where guests can book their rooms online and securely.',
     image: proyecto2, // Placeholder image
     link: 'https://posadaprogramacion.kesug.com/',
   },
   {
     id: 3,
-    title: 'Proyecto 3',
-    description: 'Un sitio web de videojuegos donde las personas tengan acceso a miles de ellos. PROXIMAMENTE...',
+    title: 'Project 3',
+    description: 'A video game website where people can access thousands of games. COMING SOON...',
     image: proyecto3, // Placeholder image
     link: '#',
   },
@@ -39,7 +39,7 @@ function Projects() {
       data-aos-duration="1000"
     >
       <div className="container">
-        <h2 className="text-center mb-4 text-white">Mis Proyectos
+        <h2 className="text-center mb-4 text-white">My projects
           <TypeAnimation
           sequence={[
             "_",

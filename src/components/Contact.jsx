@@ -52,7 +52,7 @@ function Contact() {
       style={{ paddingTop: '200px', paddingBottom: '200px' }}
     >
       <div className="container">
-        <h2 className="text-center mb-4 text-white">Contactame
+        <h2 className="text-center mb-4 text-white">Contact me
           <TypeAnimation
           sequence={[
             "!",
@@ -74,15 +74,15 @@ function Contact() {
               method="POST"
             >
               <div className="mb-3 text-white">
-                <label htmlFor="name" className="form-label">Nombre</label>
+                <label htmlFor="name" className="form-label">Name</label>
                 <StyledInput type="text" className="form-control" id="name" name="name" placeholder="Tu Nombre" value={formData.name} onChange={handleChange} required />
               </div>
               <div className="mb-3 text-white">
-                <label htmlFor="email" className="form-label">Correo Electrónico</label>
+                <label htmlFor="email" className="form-label">Email</label>
                 <StyledInput type="email" className="form-control" id="email" name="_replyto" placeholder="tu.email@example.com" value={formData.email} onChange={handleChange} required />
               </div>
               <div className="mb-3 text-white">
-                <label htmlFor="message" className="form-label">Mensaje</label>
+                <label htmlFor="message" className="form-label">Message</label>
                 <StyledTextArea className="form-control" id="message" name="message" rows="5" placeholder="Tu Mensaje" value={formData.message} onChange={handleChange} required></StyledTextArea>
               </div>
               <motion.button 
@@ -91,7 +91,7 @@ function Contact() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Enviar Mensaje
+                Send message
               </motion.button>
             </motion.form>
           </div>

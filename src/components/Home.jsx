@@ -19,7 +19,7 @@ function Home() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        Hola, Me llamo Yofrank<TypeAnimation
+        Hello, my name is Yofrank<TypeAnimation
           sequence={[
           
             '_', 
@@ -34,13 +34,13 @@ function Home() {
       <TypeAnimation
         sequence={[
           3000,
-          'Tambien me puedes llamar Alex_',
+          'You can also call me Alex_',
           3000, // Espera 1 segundo
-          'Soy Desarrollador Web',
+          'I am a web developer',
           3000,
-          'Diseñador UI/UX',
+          'UI/UX designer',
           3000,
-          'Apasionado por la Tecnología',
+          'Passionate about Technology',
           3000,
           () => {
             console.log('Sequence completed');
@@ -58,7 +58,7 @@ function Home() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
         >
-          Ver Proyectos
+          See projects
         </motion.a>
       </motion.section>
   );
