@@ -19,7 +19,7 @@ const projectsData = [
     title: 'Project 2',
     description: 'A hotel website where guests can book their rooms online and securely.',
     image: proyecto2, // Placeholder image
-    link: 'https://posadaprogramacion.kesug.com/',
+    link: 'https://villa-escondida.kesug.com/?i=1',
   },
   {
     id: 3,
