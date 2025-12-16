@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import proyecto1 from'../assets/proyecto1.png';
 import proyecto2 from'../assets/proyecto2.png';
-import proyecto3 from'../assets/proyecto3.png';
+import proyecto3 from'../assets/tatto-blood.png';
 import { TypeAnimation } from 'react-type-animation';
 
 
@@ -24,9 +24,9 @@ const projectsData = [
   {
     id: 3,
     title: 'Project 3',
-    description: 'A video game website where people can access thousands of games. COMING SOON...',
+    description: 'Your skin deserves the best. We offer a world-class tattooing experience in a sterile, welcoming environment. Our award-winning team provides expert consultation and flawless execution across all styles. Start your masterpiece with us today.',
     image: proyecto3, // Placeholder image
-    link: '#',
+    link: 'https://tattos-blood.vercel.app/',
   },
 ];
 
