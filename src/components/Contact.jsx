@@ -44,8 +44,8 @@ function Contact() {
   };
 
   return (
-    <motion.section 
-      id="contacto" 
+    <motion.section
+      id="contacto"
       className="bg-transparent home-background"
       data-aos="fade-up"
       data-aos-duration="1000"
@@ -54,13 +54,13 @@ function Contact() {
       <div className="container">
         <h2 className="text-center mb-4 text-white">Contact me
           <TypeAnimation
-          sequence={[
-            "!",
-            3000,
-          ]}
-          wrapper='span'
-          repeat={Infinity}
-          className='text-primary'
+            sequence={[
+              "!",
+              3000,
+            ]}
+            wrapper='span'
+            repeat={Infinity}
+            className='text-primary'
           />
         </h2>
         <div className="row justify-content-center">
@@ -73,11 +73,11 @@ function Contact() {
               action="https://formspree.io/f/yourformid" // ¡IMPORTANTE: Reemplazar con mi URL de Formspree!
               method="POST"
             >
-              <div className="mb-3 text-white">
+              <div className="mb-3 text-lime-400">
                 <label htmlFor="name" className="form-label">Name</label>
                 <StyledInput type="text" className="form-control" id="name" name="name" placeholder="Tu Nombre" value={formData.name} onChange={handleChange} required />
               </div>
-              <div className="mb-3 text-white">
+              <div className="mb-3 text-lime-400">
                 <label htmlFor="email" className="form-label">Email</label>
                 <StyledInput type="email" className="form-control" id="email" name="_replyto" placeholder="tu.email@example.com" value={formData.email} onChange={handleChange} required />
               </div>
@@ -85,8 +85,8 @@ function Contact() {
                 <label htmlFor="message" className="form-label">Message</label>
                 <StyledTextArea className="form-control" id="message" name="message" rows="5" placeholder="Tu Mensaje" value={formData.message} onChange={handleChange} required></StyledTextArea>
               </div>
-              <motion.button 
-                type="submit" 
+              <motion.button
+                type="submit"
                 className="btn btn-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
