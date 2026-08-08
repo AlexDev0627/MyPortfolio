@@ -121,7 +121,7 @@ function Header() {
             <div className="d-flex ms-md-auto mt-2 mt-md-0">
               <StyledButton href="#contacto">Contact me</StyledButton>
               {/* <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></SocialIcon> */}
-             
+
               <StyledIconButton href="https://github.com/AlexDev0627" target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></StyledIconButton>
             </div>
           </div>
