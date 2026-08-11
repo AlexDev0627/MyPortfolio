@@ -9,18 +9,17 @@ function Home() {
     <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
       {/* fondo */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
-        <DotGrid
-          dotSize={2}
-          gap={15}
-          baseColor="#2F293A"
-          activeColor="#fefefe"
-          proximity={120}
-          shockRadius={250}
-          shockStrength={5}
-          resistance={750}
-          returnDuration={1.5}
-          className="w-full h-full"
-        />
+         <DotGrid
+    dotSize={2}
+    gap={14}
+    baseColor="#2F293A"
+    activeColor="#3a1abbff"
+    proximity={120}
+    shockRadius={250}
+    shockStrength={5}
+    resistance={750}
+    returnDuration={1.5}
+  />
       </div>
 
       {/* hero section */}
