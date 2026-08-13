@@ -12,7 +12,7 @@ function Home() {
         <DotGrid
           dotSize={2}
           gap={15}
-          baseColor="#2F293A"
+          baseColor="#35353531"
           activeColor="#fefefe"
           proximity={120}
           shockRadius={250}
@@ -32,12 +32,12 @@ function Home() {
         transition={{ duration: 1 }}
       >
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-2 text-white"
+          className="text-8xl  font-bold mb-2 text-white"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Hello, my name is Yofrank
+          Hello, my name is Alex
           <TypeAnimation
             sequence={[
               '_',
