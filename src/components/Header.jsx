@@ -1,134 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useState } from 'react';
 
-const NavLink = styled.a`
-  position: relative;
-  color: white;
-  text-decoration: none;
-  transition: color 0.5s ease-in-out;
-  padding: 0.4rem 1rem; 
-  font-size: 0.9rem;
+export default function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const navItems = ['Products', 'Services', 'Pricing', 'About'];
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 95%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color:#007bff;
-    transform-origin: bottom right;
-    transition: transform 0.45s ease-out;
-  }
+    return (
+        <>
 
-  &:hover,
-  &.active {
-    color: #007bff !important;
-  }
+            <header className="fixed top-5 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50">
+                <nav className="bg-transparent/80 backdrop-blur-xl border-[1px] border-blue-500/20 rounded-full px-6 py-1 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 hover:border-blue-500/35">
+                    
+                    <a href="#" className="flex items-center gap-2 group text-decoration-none">
+                        <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee] transition-transform duration-300 group-hover:scale-125" />
+                        <span className="text-slate-100 font-semibold text-[16px] tracking-tight group-hover:text-cyan-300 transition-colors">
+                            Alex<span className="text-blue-400 font-normal">Dev</span>
+                        </span>
+                    </a>
 
-  &:hover::after,
-  &.active::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-`;
+                    <div className="hidden md:flex items-center gap-1 ">
+                        {navItems.map((item) => (
+                            <a 
+                                key={item} 
+                                href="#" 
+                                className="px-4 py-1.5 rounded-full text-xs font-medium text-white decoration-none hover:text-white hover:bg-blue-600/20 transition-all duration-200"
+                            >
+                                {item}
+                            </a>
+                        ))}
+                    </div>
 
-const StyledButton = styled.a`
-  background-color: #007bff;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  margin-left: 1rem;
-  transition: background-color 0.3s ease-in-out;
+                    {/* 3. Botón CTA Profesional */}
+                    <div className="hidden md:flex items-center">
+                        <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-medium text-white rounded-full group  cursor-pointer border-0">
+                            <span className="px-4 py-2 transition-all ease-in duration-95 bg-white/1 rounded-full group-hover:bg-cyan-500 text-slate-100 font-semibold">
+                                Get Started
+                            </span>
+                        </button>
+                    </div>
 
-  &:hover {
-    background-color: #0056b3;
-    color: white; 
-  }
-`;
+                    {/* Botón Menú Mobile */}
+                    <button 
+                        onClick={() => setMenuOpen(!menuOpen)} 
+                        className="md:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-0 p-1.5"
+                        aria-label="Toggle menu"
+                    >
+                        <span className={`block w-5 h-0.5 bg-slate-200 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                        <span className={`block w-5 h-0.5 bg-slate-200 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`block w-5 h-0.5 bg-slate-200 transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                    </button>
+                </nav>
 
-const StyledIconButton = styled.a`
-  
-  color: white;
-  font-size:22px;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  alig-items:center;
-  justify-content:center;
-  margin-left:30px;
-  transition: color 0.4s ease-in-out;
-
-  &:hover {
-
-    color:  #007bff;;
-  }
-`;
-
-const StyledBrandName = styled.h1`
-  color: white;
-  transition: color 0.3s ease-in-out;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
-
-function Header() {
-  const [activeSection, setActiveSection] = useState('inicio');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['inicio', 'sobre-mi', 'proyectos', 'contacto'];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set active section on initial load
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  return (
-    <Navbar expand="md" variant="dark" className="py-3" style={{ backgroundColor: 'rgb(13, 21, 33)' }}>
-      <Container>
-        <Navbar.Brand href="#inicio">
-          <StyledBrandName className="h3 mb-0">AlexDev</StyledBrandName>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <div className="d-flex flex-column flex-md-row justify-content-md-center w-100">
-            <Nav className="flex-grow-1 justify-content-center">
-              <NavLink href="#inicio" className={activeSection === 'inicio' ? 'nav-link active' : 'nav-link'}>Home</NavLink>
-              <NavLink href="#sobre-mi" className={activeSection === 'sobre-mi' ? 'nav-link active' : 'nav-link'}>About me</NavLink>
-              <NavLink href="#proyectos" className={activeSection === 'proyectos' ? 'nav-link active' : 'nav-link'}>Projects</NavLink>
-              <NavLink href="#contacto" className={activeSection === 'contacto' ? 'nav-link active' : 'nav-link'}>Contact</NavLink>
-            </Nav>
-            <div className="d-flex ms-md-auto mt-2 mt-md-0">
-              <StyledButton href="#contacto">Contact me</StyledButton>
-              {/* <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></SocialIcon> */}
-
-              <StyledIconButton href="https://github.com/AlexDev0627" target="_blank" rel="noopener noreferrer"><i className="bi bi-github"></i></StyledIconButton>
-            </div>
-          </div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+                {/* Desplegable Mobile para Tema Oscuro */}
+                {menuOpen && (
+                    <div className="mt-3 bg-slate-950/90 backdrop-blur-2xl border border-blue-500/20 rounded-2xl p-4 flex flex-col gap-1 md:hidden shadow-2xl transition-all">
+                        {navItems.map((item) => (
+                            <a 
+                                key={item} 
+                                href="#" 
+                                className="px-4 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-blue-600/20 transition-colors"
+                            >
+                                {item}
+                            </a>
+                        ))}
+                        <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-semibold py-2.5 rounded-xl border-0 mt-2 cursor-pointer shadow-md">
+                            Get Started
+                        </button>
+                    </div>
+                )}
+            </header>
+        </>
+    );
 }
-
-export default Header;

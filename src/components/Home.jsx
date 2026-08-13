@@ -12,7 +12,7 @@ function Home() {
         <DotGrid
           dotSize={2}
           gap={15}
-          baseColor="#35353531"
+          baseColor="#2F293A"
           activeColor="#fefefe"
           proximity={120}
           shockRadius={250}
