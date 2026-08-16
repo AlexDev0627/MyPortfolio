@@ -4,6 +4,8 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const navItems = ['Products', 'Services', 'Pricing', 'About'];
 
+
+//mover titulo a la izquierda y poner una foto o imagen de el lado derecho con glassmorphis
     return (
         <>
 
