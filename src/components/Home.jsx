@@ -61,9 +61,7 @@ function Home() {
             3000,
             'Passionate about Technology',
             3000,
-            () => {
-              console.log('Sequence completed');
-            },
+            () => {},
           ]}
           wrapper="p"
           repeat={Infinity}
