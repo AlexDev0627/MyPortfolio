@@ -3,7 +3,6 @@ import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
-import './About.css';
 
 // Importacion imágenes de habilidades aquí
 import reactLogo from '../assets/react.svg';
@@ -39,7 +38,7 @@ function About() {
   return (
     <motion.section
       id="sobre-mi"
-      className="py-5 py-5 about-background"
+      className="py-5"
       data-aos="fade-up"
       data-aos-duration="1000"
     >

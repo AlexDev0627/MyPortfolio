@@ -32,9 +32,9 @@ const projectsData = [
 
 function Projects() {
   return (
-    <motion.section 
-      id="proyectos" 
-      className="py-5 py-5 bg-transparent home-background"
+    <motion.section
+      id="proyectos"
+      className="py-5"
       data-aos="fade-up"
       data-aos-duration="1000"
     >

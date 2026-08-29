@@ -70,7 +70,7 @@ function Footer() {
             <h5 className="mb-3">Contact</h5>
             <p><i className="bi bi-envelope me-2"></i> yofranksalas@gmail.com</p>
             <p><i className="bi bi-phone me-2"></i>+58 4124119922</p>
-            <p><i className="bi bi-geo-alt me-2"></i>Valencia, Estado Carabbo</p>
+            <p><i className="bi bi-geo-alt me-2"></i>Valencia, Estado Carabobo</p>
             <div className="mt-3">
               <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></SocialIcon>
               <SocialIcon href="https://www.facebook.com/yofrank.salas" target="_blank" rel="noopener noreferrer"><i className="bi bi-facebook"></i></SocialIcon>

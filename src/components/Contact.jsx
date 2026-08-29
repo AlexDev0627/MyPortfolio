@@ -46,7 +46,7 @@ function Contact() {
   return (
     <motion.section
       id="contacto"
-      className="bg-transparent home-background"
+      className="bg-transparent"
       data-aos="fade-up"
       data-aos-duration="1000"
       style={{ paddingTop: '200px', paddingBottom: '200px' }}
