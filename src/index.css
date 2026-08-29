@@ -116,12 +116,6 @@ body {
 
 /* Icon B&N (idle) → color (hover) transition.
    cubic-bezier gives the color-on moment a weighted feel. */
-/* Linux icon needs brightness boost — its Tux is mostly black,
-   so plain grayscale would make it invisible on the dark bg. */
-.skill-icon-wrap[data-skill="Linux"] {
-  filter: grayscale(1) brightness(1.6) contrast(1.05);
-}
-
 .skill-icon-wrap {
   filter: grayscale(1) brightness(0.95) contrast(1.05);
   opacity: 0.5;
@@ -143,9 +137,8 @@ body {
 }
 
 .skill-cell:hover .skill-icon-wrap {
-  filter: grayscale(0) brightness(1.05) contrast(1.05)
-          drop-shadow(0 0 14px var(--mango-glow));
-  opacity: 1;
+  filter: grayscale(0);
+  opacity: 0.85;
   transform: translateY(-4px) scale(1.08);
 }
 
