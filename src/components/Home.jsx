@@ -105,7 +105,11 @@ function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.6 }}
                 >
-                    <a href="#proyectos" className="inline-block">
+                    <a
+                        href="#proyectos"
+                        className="inline-block overflow-hidden rounded-2xl"
+                        style={{ borderRadius: '14px' }}
+                    >
                         <SpecularButton
                             size="lg"
                             radius={14}
