@@ -1,87 +1,155 @@
 import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import styled from 'styled-components';
+import { contactInfo } from '../data/contact';
+import { navItems } from '../data/navigation';
 
-const StyledFooter = styled.footer`
-  background: -webkit-linear-gradient(90deg, #000000,#0d1521,#070e18);
-  background: linear-gradient(90deg, #000000,#0d1521,#070e18);
-  color: #fff;
-  padding: 4rem 0;
-`;
-
-const FooterLink = styled.a`
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  display: block;
-  transition: color 0.3s ease-in-out;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
-
-const SocialIcon = styled.a`
-  color: #fff;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  transition: color 0.3s ease-in-out;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
-
+/** Footer: <Yofrank /> branding + nav index + social links. Mango top border. */
 function Footer() {
-  return (
-    <StyledFooter>
-      <div className="container">
-        <div className="row">
-          {}
-          <div className="col-md-4 mb-4 mb-md-0">
-            <h5 className="mb-3">
-              <TypeAnimation
-              sequence={[
-                "AlexDev_",
-                3000,
-              ]}
-              wrapper='span'
-              repeat={Infinity}
-              className='text-primary'
-              />
-            </h5>
-            <p>Web developer passionate about creating innovative and engaging digital solutions.</p>
-            <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
-          </div>
+    const currentYear = new Date().getFullYear();
 
-          {/* Columna 2: Enlaces útiles */}
-          <div className="col-md-4 mb-4 mb-md-0">
-            <h5 className="mb-3">Useful Links</h5>
-            <ul className="list-unstyled">
-              <li><FooterLink href="#inicio">Home</FooterLink></li>
-              <li><FooterLink href="#sobre-mi">About me</FooterLink></li>
-              <li><FooterLink href="#proyectos">Projects</FooterLink></li>
-              <li><FooterLink href="#contacto">Contact</FooterLink></li>
-            </ul>
-          </div>
+    return (
+        <footer
+            className="relative border-t-2 overflow-hidden"
+            style={{ borderColor: 'var(--mango)' }}
+        >
+            <div
+                aria-hidden="true"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[40rem] h-[20rem] rounded-full pointer-events-none"
+                style={{
+                    background: 'radial-gradient(ellipse, rgba(255, 107, 26, 0.10) 0%, transparent 70%)',
+                    filter: 'blur(60px)',
+                }}
+            />
 
-          {}
-          <div className="col-md-4 mb-4 mb-md-0">
-            <h5 className="mb-3">Contact</h5>
-            <p><i className="bi bi-envelope me-2"></i> yofranksalas@gmail.com</p>
-            <p><i className="bi bi-phone me-2"></i>+58 4124119922</p>
-            <p><i className="bi bi-geo-alt me-2"></i>Valencia, Estado Carabobo</p>
-            <div className="mt-3">
-              <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-linkedin"></i></SocialIcon>
-              <SocialIcon href="https://www.facebook.com/yofrank.salas" target="_blank" rel="noopener noreferrer"><i className="bi bi-facebook"></i></SocialIcon>
-              <SocialIcon href="https://x.com/Alexandro_d27" target="_blank" rel="noopener noreferrer"><i className="bi bi-twitter-x"></i></SocialIcon>
-              <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram"></i></SocialIcon>
+            <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-16">
+                <div className="grid md:grid-cols-12 gap-10 md:gap-12">
+                    {/* Branding con estilo <Yofrank /> */}
+                    <div className="md:col-span-5">
+                        <a
+                            href="#inicio"
+                            className="group inline-flex items-center font-mono text-3xl md:text-4xl leading-none tracking-tight"
+                        >
+                            <span
+                                className="transition-transform duration-300 group-hover:-translate-x-1"
+                                style={{ color: 'var(--mango)' }}
+                            >
+                                {'<'}
+                            </span>
+                            <span
+                                className="font-display font-bold  transition-colors duration-300"
+                                style={{ color: 'var(--paper)' }}
+                            >
+                                
+                            </span>
+                            <span
+                                className="transition-transform duration-300 group-hover:translate-x-1"
+                                style={{ color: 'var(--mango)' }}
+                            >
+                                {'/>'}
+                            </span>
+                        </a>
+                        <p
+                            className="mt-4 font-mono text-sm leading-relaxed max-w-sm"
+                            style={{ color: 'var(--paper-dim)' }}
+                        >
+                            Full-stack developer building tools for the web,
+                            from Valencia, Venezuela.
+                        </p>
+                    </div>
+
+                    {/* Nav Index */}
+                    <div className="md:col-span-3">
+                        <h4
+                            className="font-mono text-xs uppercase tracking-widest mb-4"
+                            style={{ color: 'var(--paper-dim)' }}
+                        >
+                            Index
+                        </h4>
+                        <ul className="space-y-2">
+                            {navItems.map((item, i) => (
+                                <li key={item.id}>
+                                    <a
+                                        href={item.href}
+                                        className="group inline-flex items-baseline gap-2 font-mono text-sm transition-colors duration-300"
+                                        style={{ color: 'var(--paper)' }}
+                                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--mango)')}
+                                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--paper)')}
+                                    >
+                                        <span
+                                            className="text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                            style={{ color: 'var(--mango)' }}
+                                        >
+                                            0{i + 1}
+                                        </span>
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Social links */}
+                    <div className="md:col-span-4">
+                        <h4
+                            className="font-mono text-xs uppercase tracking-widest mb-4"
+                            style={{ color: 'var(--paper-dim)' }}
+                        >
+                            Elsewhere
+                        </h4>
+                        <ul className="space-y-2">
+                            {contactInfo.social.map((social) => (
+                                <li key={social.name}>
+                                    <a
+                                        href={social.url}
+                                        target={social.url !== '#' ? '_blank' : undefined}
+                                        rel={social.url !== '#' ? 'noopener noreferrer' : undefined}
+                                        className="group inline-flex items-center gap-3 font-mono text-sm transition-colors duration-300"
+                                        style={{ color: 'var(--paper)' }}
+                                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--mango)')}
+                                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--paper)')}
+                                    >
+                                        <i
+                                            aria-hidden="true"
+                                            className={`bi ${social.icon} transition-colors duration-300`}
+                                            style={{ color: 'var(--paper-dim)' }}
+                                        />
+                                        {social.name}
+                                        {social.url !== '#' && (
+                                            <span
+                                                aria-hidden="true"
+                                                className="text-xs"
+                                                style={{ color: 'var(--paper-dim)' }}
+                                            >
+                                                ↗
+                                            </span>
+                                        )}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Bottom bar */}
+                <div
+                    className="mt-16 pt-6 flex flex-wrap items-center justify-between gap-4"
+                    style={{ borderTop: '1px solid var(--line-soft)' }}
+                >
+                    <p
+                        className="font-mono text-xs"
+                        style={{ color: 'var(--paper-dim)' }}
+                    >
+                        © {currentYear} Yofrank Salas. All rights reserved.
+                    </p>
+                    <p
+                        className="font-mono text-xs"
+                        style={{ color: 'var(--paper-dim)' }}
+                    >
+                         · Deployed from Venezuela
+                    </p>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </StyledFooter>
-  );
+        </footer>
+    );
 }
 
 export default Footer;

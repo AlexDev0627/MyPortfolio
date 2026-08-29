@@ -1,17 +1,171 @@
-/* Estilos globales */
+/* Global styles — "Engineer of the tropics" */
+
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+:root {
+  /* Color tokens */
+  --ink: #0A0E14;
+  --ink-2: #131A22;
+  --ink-3: #1B242E;
+  --line: #2A3340;
+  --line-soft: #1F2731;
+  --paper: #E8E4D8;
+  --paper-dim: #8A8478;
+  --mango: #FF6B1A;
+  --mango-glow: rgba(255, 107, 26, 0.18);
+  --lime: #C4F542;
+
+  /* Type tokens */
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-body: "Geist Variable", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+* { box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: none;
+}
+
+a:visited, a:hover, a:focus, a:active {
+  text-decoration: none;
+  border-bottom: none;
+}
+
 html {
-  scroll-padding-top: 70px;
-  /* Ajusta esto a la altura real de tu navbar */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  font-family: 'JetBrains Mono', monospace;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  /* background-color: RGB(7, 14, 28);*/
-  background: -webkit-linear-gradient(90deg, #000000, #0d1521, #070e18);
-  background: linear-gradient(90deg, #000000, #0d1521, #070e18);
+  font-family: var(--font-body);
+  color: var(--paper);
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(ellipse at top, rgba(255, 107, 26, 0.04), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(196, 245, 66, 0.02), transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Otros estilos existentes */
+::selection { background: var(--mango); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--mango);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Utility classes */
+.font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-paper      { color: var(--paper); }
+.text-paper-dim  { color: var(--paper-dim); }
+.text-mango      { color: var(--mango); }
+.text-lime       { color: var(--lime); }
+
+.bg-ink     { background-color: var(--ink); }
+.bg-ink-2   { background-color: var(--ink-2); }
+.bg-ink-3   { background-color: var(--ink-3); }
+
+.border-line { border: 1px solid var(--line); }
+.border-line-soft { border: 1px solid var(--line-soft); }
+
+/* Typewriter cursor blink (signature element) */
+@keyframes cursorBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 0.5ch;
+  height: 0.9em;
+  background: var(--mango);
+  margin-left: 0.15ch;
+  vertical-align: -0.05em;
+  animation: cursorBlink 1s steps(1) infinite;
+}
+
+/* Skills marquee */
+/* Duplicated list + -50% translate = seamless infinite loop */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  cursor: pointer;
+  animation: marqueeScroll 40s linear infinite;
+  will-change: transform;
+}
+
+/* .marquee-track:hover {
+  animation-play-state: running ;
+} */
+
+/* Icon B&N (idle) → color (hover) transition.
+   cubic-bezier gives the color-on moment a weighted feel. */
+/* Linux icon needs brightness boost — its Tux is mostly black,
+   so plain grayscale would make it invisible on the dark bg. */
+.skill-icon-wrap[data-skill="Linux"] {
+  filter: grayscale(1) brightness(1.6) contrast(1.05);
+}
+
+.skill-icon-wrap {
+  filter: grayscale(1) brightness(0.95) contrast(1.05);
+  opacity: 0.5;
+  transition:
+    filter 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 350ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-icon-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.skill-cell {
+  cursor: pointer;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-cell:hover .skill-icon-wrap {
+  filter: grayscale(0) brightness(1.05) contrast(1.05)
+          drop-shadow(0 0 14px var(--mango-glow));
+  opacity: 1;
+  transform: translateY(-4px) scale(1.08);
+}
+
+.skill-cell:hover .skill-label {
+  color: var(--paper);
+  letter-spacing: 0.05em;
+}
+
+.skill-label {
+  transition: color 200ms ease, letter-spacing 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+}

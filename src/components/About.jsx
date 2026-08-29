@@ -1,112 +1,71 @@
 import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import Carousel from 'react-bootstrap/Carousel';
-import styled from 'styled-components';
+import SectionLabel from './SectionLabel';
 
-// Importacion imágenes de habilidades aquí
-import reactLogo from '../assets/react.svg';
-import javascriptLogo from '../assets/javascript.png';
-import htmlLogo from '../assets/html.png';
-import cssLogo from '../assets/css.png';
-import bootstrapLogo from '../assets/bootstrap.png';
-import nodejsLogo from '../assets/nodejs.png';
-import databaseLogo from '../assets/database.png';
-import Git from '../assets/git.png';
-import Linux from '../assets/linux.png';
-
-
-const skillsData = [
-  { name: 'React.js', image: reactLogo },
-  { name: 'JavaScript', image: javascriptLogo },
-  { name: 'HTML5', image: htmlLogo },
-  { name: 'CSS3', image: cssLogo },
-  { name: 'Bootstrap', image: bootstrapLogo },
-  { name: 'Node.js', image: nodejsLogo },
-  { name: 'SQL/NoSQL', image: databaseLogo },
-  { name: 'Git', image: Git },
-  { name: 'Linux', image: Linux },
-];
-
-const AboutTextContainer = styled.div`
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 200px;
-`;
-
+/** About section: serif headline + bio. */
 function About() {
-  return (
-    <motion.section
-      id="sobre-mi"
-      className="py-5"
-      data-aos="fade-up"
-      data-aos-duration="1000"
-    >
-      <div className="container">
-        <h2 className="text-center mb-4 text-white">
-          About Me<TypeAnimation
-            sequence={[
-              "_",
-              3000, 
-            ]}
-            wrapper="span"
-            speed={10}
-            repeat={Infinity}
-          className="text-primary"
+    return (
+        <section
+            id="sobre-mi"
+            className="relative py-24 md:py-32 overflow-hidden"
+        >
+            <div
+                aria-hidden="true"
+                className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full pointer-events-none"
+                style={{
+                    background: 'radial-gradient(circle, rgba(196, 245, 66, 0.10) 0%, transparent 70%)',
+                    filter: 'blur(60px)',
+                }}
+            />
+            <div className="max-w-6xl mx-auto px-6 md:px-10">
+                <SectionLabel index="01">Sobre mí</SectionLabel>
 
-          />
-        </h2>
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <AboutTextContainer>
-              <motion.p
-                className="text-white mb-4"
-              >
-              I am a passionate web developer with experience creating dynamic and responsive web applications. I love transforming ideas into functional and attractive digital solutions.
-              </motion.p>
-              <motion.p
-                className="text-white mb-5"
-              >
-                My main focus is frontend development, where I enjoy working with modern technologies like React, JavaScript, and CSS. I also have knowledge of backend development with Node.js and databases  .
-              </motion.p>
-            </AboutTextContainer>
-          </div>
-        </div>
+                <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+                    <div className="md:col-span-5">
+                        <motion.h2
+                            className="font-display font-black text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight"
+                            style={{ color: 'var(--paper)' }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            I build{' '}
+                            <span className="italic" style={{ color: 'var(--mango)' }}>
+                                tools
+                            </span>{' '}
+                            for the web.
+                        </motion.h2>
+                    </div>
 
-        <h3 className="text-center mb-4 text-white">Skills 
-          <TypeAnimation
-          sequence={[
-            "_",
-            3000,
-          ]}
-          wrapper='span'
-          speed={10}
-          repeat={Infinity}
-          className='text-primary'
-          />
-        </h3>
-        <div className="row justify-content-center mb-5">
-          <div className="col-md-8">
-            <Carousel indicators={false} interval={3000} pause={false}>
-              {skillsData.map((skill, idx) => (
-                <Carousel.Item key={idx}>
-                  <div className="d-flex flex-column align-items-center justify-content-center p-4">
-                    <img
-                      className="d-block mb-3"
-                      src={skill.image}
-                      alt={skill.name}
-                      style={{ width: '100px', height: '100px', objectFit: 'contain' }}
-                    />
-                    <h5 className="text-white">{skill.name}</h5>
-                  </div>
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          </div>
-        </div>
-      </div>
-    </motion.section>
-  );
+                    <div className="md:col-span-7">
+                        <motion.div
+                            className="space-y-5 text-lg leading-relaxed font-mono"
+                            style={{ color: 'var(--paper-dim)' }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                        >
+                            <p>
+                                I'm a full-stack developer based in{' '}
+                                <span style={{ color: 'var(--paper)' }}>
+                                    Valencia, Venezuela
+                                </span>
+                                . I like turning ideas into working software — usually
+                                with React on the front, Node on the back, and a
+                                generous amount of CSS in between.
+                            </p>
+                            <p>
+                                My current focus is on shipping fast, accessible
+                                interfaces with a sharp eye for typography and motion.
+                            </p>
+                        </motion.div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }
 
 export default About;

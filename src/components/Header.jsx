@@ -1,75 +1,145 @@
 import { useState } from 'react';
+import { navItems } from '../data/navigation';
 
+/** Fixed top bar: <Yofrank /> logo, nav with soft hover, mango CTA. */
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const navItems = ['Products', 'Services', 'Pricing', 'About'];
 
-
-//mover titulo a la izquierda y poner una foto o imagen de el lado derecho con glassmorphis
     return (
-        <>
-
-            <header className="fixed top-5 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50">
-                <nav className="bg-transparent/80 backdrop-blur-xl border-[1px] border-blue-500/20 rounded-full px-6 py-1 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300 hover:border-blue-500/35">
-                    
-                    <a href="#" className="flex items-center gap-2 group text-decoration-none">
-                        <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee] transition-transform duration-300 group-hover:scale-125" />
-                        <span className="text-slate-100 font-semibold text-[16px] tracking-tight group-hover:text-cyan-300 transition-colors">
-                            Alex<span className="text-blue-400 font-normal">Dev</span>
-                        </span>
-                    </a>
-
-                    <div className="hidden md:flex items-center gap-1 ">
-                        {navItems.map((item) => (
-                            <a 
-                                key={item} 
-                                href="#" 
-                                className="px-4 py-1.5 rounded-full text-xs font-medium text-white decoration-none hover:text-white hover:bg-blue-600/20 transition-all duration-200"
-                            >
-                                {item}
-                            </a>
-                        ))}
-                    </div>
-
-                    {/* 3. Botón CTA Profesional */}
-                    <div className="hidden md:flex items-center">
-                        <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-medium text-white rounded-full group  cursor-pointer border-0">
-                            <span className="px-4 py-2 transition-all ease-in duration-95 bg-white/1 rounded-full group-hover:bg-cyan-500 text-slate-100 font-semibold">
-                                Get Started
-                            </span>
-                        </button>
-                    </div>
-
-                    {/* Botón Menú Mobile */}
-                    <button 
-                        onClick={() => setMenuOpen(!menuOpen)} 
-                        className="md:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-0 p-1.5"
-                        aria-label="Toggle menu"
+        <header className="fixed top-0 left-0 right-0 z-50 bg-ink/85 backdrop-blur-md border-b border-[var(--line)]">
+            <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+                <a
+                    href="#inicio"
+                    className="group flex items-center font-mono text-base md:text-lg leading-none tracking-tight"
+                    aria-label="Inicio"
+                >
+                    <span
+                        className="transition-transform duration-300 group-hover:-translate-x-0.5"
+                        style={{ color: 'var(--mango)' }}
                     >
-                        <span className={`block w-5 h-0.5 bg-slate-200 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                        <span className={`block w-5 h-0.5 bg-slate-200 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
-                        <span className={`block w-5 h-0.5 bg-slate-200 transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-                    </button>
+                        {'<'}
+                    </span>
+                   
+                    <span
+                        className="transition-transform duration-300 group-hover:translate-x-0.5"
+                        style={{ color: 'var(--mango)' }}
+                    >
+                        {'/>'}
+                    </span>
+                </a>
+
+                <nav
+                    aria-label="Navegación principal"
+                    className="hidden md:flex items-center"
+                >
+                    {navItems.map((item, i) => (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            className="group relative px-4 py-2 font-mono text-xs tracking-wide transition-colors duration-300 ease-out"
+                            style={{ color: 'var(--paper-dim)' }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--paper)')}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--paper-dim)')}
+                        >
+                            <span
+                                className="mr-2 inline-block opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
+                                style={{ color: 'var(--mango)' }}
+                            >
+                                0{i + 1}
+                            </span>
+                            {item.label}
+                            <span
+                                aria-hidden="true"
+                                className="absolute left-1/2 right-1/2 bottom-1 h-px group-hover:left-3 group-hover:right-3 transition-all duration-500 ease-out"
+                                style={{ background: 'var(--mango)' }}
+                            />
+                        </a>
+                    ))}
                 </nav>
 
-                {/* Desplegable Mobile para Tema Oscuro */}
-                {menuOpen && (
-                    <div className="mt-3 bg-slate-950/90 backdrop-blur-2xl border border-blue-500/20 rounded-2xl p-4 flex flex-col gap-1 md:hidden shadow-2xl transition-all">
-                        {navItems.map((item) => (
-                            <a 
-                                key={item} 
-                                href="#" 
-                                className="px-4 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-blue-600/20 transition-colors"
+                <a
+                    href="#contacto"
+                    className="hidden md:inline-flex items-center gap-2 font-mono text-xs px-4 py-2 border transition-all duration-300 ease-out hover:shadow-[0_0_20px_var(--mango-glow)]"
+                    style={{
+                        borderColor: 'var(--mango)',
+                        color: 'var(--mango)',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'var(--mango)';
+                        e.currentTarget.style.color = 'var(--ink)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'transparent';
+                        e.currentTarget.style.color = 'var(--mango)';
+                    }}
+                >
+                    <span>Contact</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="md:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-0 p-2 -mr-2"
+                    aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                    aria-expanded={menuOpen}
+                >
+                    <span
+                        className={`block w-5 h-px transition-transform duration-300 ${menuOpen ? 'translate-y-[3px] rotate-45' : ''}`}
+                        style={{ background: 'var(--paper)' }}
+                    />
+                    <span
+                        className={`block w-5 h-px transition-transform duration-300 ${menuOpen ? '-translate-y-[3px] -rotate-45' : ''}`}
+                        style={{ background: 'var(--paper)' }}
+                    />
+                </button>
+            </div>
+
+            {menuOpen && (
+                <div
+                    className="md:hidden border-t bg-ink"
+                    style={{ borderColor: 'var(--line)' }}
+                >
+                    <nav
+                        aria-label="Navegación móvil"
+                        className="px-6 py-4 flex flex-col"
+                    >
+                        {navItems.map((item, i) => (
+                            <a
+                                key={item.id}
+                                href={item.href}
+                                onClick={() => setMenuOpen(false)}
+                                className="group flex items-baseline gap-3 py-3 border-b last:border-0 transition-colors duration-300"
+                                style={{ borderColor: 'var(--line-soft)' }}
                             >
-                                {item}
+                                <span
+                                    className="font-mono text-xs"
+                                    style={{ color: 'var(--mango)' }}
+                                >
+                                    0{i + 1}
+                                </span>
+                                <span
+                                    className="font-display text-lg transition-colors duration-300"
+                                    style={{ color: 'var(--paper)' }}
+                                >
+                                    {item.label}
+                                </span>
                             </a>
                         ))}
-                        <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-semibold py-2.5 rounded-xl border-0 mt-2 cursor-pointer shadow-md">
-                            Get Started
-                        </button>
-                    </div>
-                )}
-            </header>
-        </>
+                        <a
+                            href="#contacto"
+                            onClick={() => setMenuOpen(false)}
+                            className="mt-4 inline-flex items-center justify-center gap-2 font-mono text-sm px-4 py-3 border transition-all duration-300"
+                            style={{
+                                borderColor: 'var(--mango)',
+                                color: 'var(--mango)',
+                            }}
+                        >
+                            <span>Get in touch</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </nav>
+                </div>
+            )}
+        </header>
     );
 }
